@@ -4,6 +4,7 @@
 size = Vector2(128, 128)
 
 [node name="Emeny2" type="CharacterBody2D"]
+motion_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(128, 128)

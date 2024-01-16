@@ -11,6 +11,5 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_timer_timeout():
-	emeny.instantiate()
+	add_child(emeny.instantiate())

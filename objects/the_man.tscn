@@ -1,9 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck2ec7r4qsdr4"]
+[gd_scene load_steps=3 format=3 uid="uid://ck2ec7r4qsdr4"]
+
+[ext_resource type="Script" path="res://objects/the_man.gd" id="1_mkixg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_21u08"]
 radius = 20.0
 
-[node name="TheMan" type="CharacterBody2D"]
+[node name="TheMan" type="Area2D"]
+collision_mask = 0
+script = ExtResource("1_mkixg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8

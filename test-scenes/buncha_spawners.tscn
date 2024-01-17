@@ -5,7 +5,7 @@
 [node name="BunchaSpawners" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(579, 323)
+anchor_mode = 0
 metadata/_edit_lock_ = true
 
 [node name="EmenySpawner" parent="." instance=ExtResource("1_3m5pd")]

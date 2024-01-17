@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_21u08"]
 radius = 20.0
 
-[node name="TheMan" type="Area2D"]
+[node name="TheMan" type="Area2D" groups=["aggro_target"]]
 collision_mask = 0
 script = ExtResource("1_mkixg")
 

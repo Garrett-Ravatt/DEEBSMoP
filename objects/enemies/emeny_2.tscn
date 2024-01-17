@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqasjawoteqde"]
+[gd_scene load_steps=3 format=3 uid="uid://bqasjawoteqde"]
+
+[ext_resource type="Script" path="res://objects/enemies/emeny_2.gd" id="1_xorsv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfg7g"]
 size = Vector2(128, 128)
 
 [node name="Emeny2" type="CharacterBody2D"]
 motion_mode = 1
+script = ExtResource("1_xorsv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(128, 128)

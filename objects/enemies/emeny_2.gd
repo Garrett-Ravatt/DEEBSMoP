@@ -7,8 +7,9 @@ signal death
 			death.emit()
 		health = value
 
-@export var speed := 150.0
-@export var accel := 100.0
+@export var speed := 500.0
+@export var accel := 600.0
+@export var linear_damping := 0.05
 
 enum EMENYSTATE {
 	PURSUIT,
@@ -48,12 +49,14 @@ func _physics_process(delta):
 		EMENYSTATE.PATROL:
 			pass
 		EMENYSTATE.PURSUIT:
+			velocity /= (1.0 + linear_damping * delta)
+			
 			var direction = (target.global_position - global_position).normalized()
 			
 			if direction:
-				velocity.x = clamp(velocity.x + direction.x * accel * delta, -speed, speed)
-				velocity.y = clamp(velocity.y + direction.y * accel * delta, -speed, speed)
+				velocity += direction * accel * delta
+				velocity.limit_length(speed)
 			else:
-				velocity.x = move_toward(velocity.x, 0, speed * delta)
+				velocity.limit_length(velocity.length() - accel)
 
 	move_and_slide()

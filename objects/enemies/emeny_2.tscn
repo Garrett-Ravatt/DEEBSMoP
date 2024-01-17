@@ -25,8 +25,10 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.780392, 0, 0, 1)
+metadata/_edit_group_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
 offset_left = 73.0
 offset_top = 18.0
 offset_right = 113.0
@@ -34,6 +36,7 @@ offset_bottom = 58.0
 scale = Vector2(0.8, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 34.0
 offset_right = 50.0

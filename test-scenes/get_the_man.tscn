@@ -1,9 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd0s51ahsweea"]
+[gd_scene load_steps=4 format=3 uid="uid://dd0s51ahsweea"]
 
 [ext_resource type="PackedScene" uid="uid://ck2ec7r4qsdr4" path="res://objects/the_man.tscn" id="1_mu60b"]
 [ext_resource type="PackedScene" uid="uid://bqasjawoteqde" path="res://objects/enemies/emeny_2.tscn" id="2_mapl8"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_meqdx"]
+
 [node name="GetTheMan" type="Node2D"]
+
+[node name="BoundingBox" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BoundingBox"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_meqdx")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BoundingBox"]
+position = Vector2(0, 650)
+shape = SubResource("WorldBoundaryShape2D_meqdx")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BoundingBox"]
+position = Vector2(1150, 1)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_meqdx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundingBox"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_meqdx")
 
 [node name="TheMan" parent="." instance=ExtResource("1_mu60b")]
 position = Vector2(447, 253)

@@ -1,5 +1,11 @@
 extends Area2D
 
+signal death
+@export var health := 100.0 :
+	set(value):
+		if value <= 0:
+			death.emit()
+		health = value
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.

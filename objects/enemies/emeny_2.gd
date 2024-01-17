@@ -1,8 +1,14 @@
 extends CharacterBody2D
 
+signal death
+@export var health := 100.0 :
+	set(value):
+		if value <= 0:
+			death.emit()
+		health = value
 
-const SPEED = 150.0
-const ACCEL = 100.0
+@export var speed := 150.0
+@export var accel := 100.0
 
 enum EMENYSTATE {
 	PURSUIT,
@@ -45,9 +51,9 @@ func _physics_process(delta):
 			var direction = (target.global_position - global_position).normalized()
 			
 			if direction:
-				velocity.x = clamp(velocity.x + direction.x * ACCEL * delta, -SPEED, SPEED)
-				velocity.y = clamp(velocity.y + direction.y * ACCEL * delta, -SPEED, SPEED)
+				velocity.x = clamp(velocity.x + direction.x * accel * delta, -speed, speed)
+				velocity.y = clamp(velocity.y + direction.y * accel * delta, -speed, speed)
 			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+				velocity.x = move_toward(velocity.x, 0, speed * delta)
 
 	move_and_slide()

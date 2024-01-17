@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ck2ec7r4qsdr4"]
+[gd_scene load_steps=4 format=3 uid="uid://ck2ec7r4qsdr4"]
 
 [ext_resource type="Script" path="res://objects/the_man.gd" id="1_mkixg"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qaa3g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_21u08"]
 radius = 20.0
@@ -9,18 +11,10 @@ radius = 20.0
 collision_mask = 0
 script = ExtResource("1_mkixg")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, 3.8147e-06)
+scale = Vector2(40.0454, 40)
+mesh = SubResource("SphereMesh_qaa3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_21u08")

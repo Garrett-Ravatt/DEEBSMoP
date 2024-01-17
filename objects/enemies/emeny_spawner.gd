@@ -2,14 +2,20 @@ extends Marker2D
 
 var emeny = preload("res://objects/enemies/emeny_2.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@onready var spawn_berth = $"SpawnBerth"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func spawn():
+	var fresh_child = emeny.instantiate()
+	fresh_child.velocity = Vector2(randf()-0.5, randf()-0.5).normalized() * 50.0
+	add_child(fresh_child)
 
 func _on_timer_timeout():
-	add_child(emeny.instantiate())
+	if spawn_berth.has_overlapping_bodies():
+		spawn_berth.connect("area_exited", _area_exited)
+	else:
+		spawn()
+
+func _area_exited():
+	if !spawn_berth.has_overlapping_bodies():
+		spawn()
+		spawn_berth.disconnect("area_exited", _area_exited)

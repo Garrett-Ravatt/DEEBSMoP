@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://kwmj1l2lqplm"]
+[gd_scene load_steps=3 format=3 uid="uid://kwmj1l2lqplm"]
 
 [ext_resource type="PackedScene" uid="uid://bq4cy38o7vn18" path="res://objects/enemies/emeny_spawner.tscn" id="1_3m5pd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jx3mm"]
 
 [node name="BunchaSpawners" type="Node2D"]
 
@@ -16,3 +18,22 @@ position = Vector2(797, 284)
 
 [node name="EmenySpawner3" parent="." instance=ExtResource("1_3m5pd")]
 position = Vector2(539, 452)
+
+[node name="BoundingBox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BoundingBox"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_jx3mm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BoundingBox"]
+position = Vector2(0, 650)
+shape = SubResource("WorldBoundaryShape2D_jx3mm")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BoundingBox"]
+position = Vector2(1150, 1)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_jx3mm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundingBox"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_jx3mm")

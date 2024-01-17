@@ -1,11 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq4cy38o7vn18"]
+[gd_scene load_steps=3 format=3 uid="uid://bq4cy38o7vn18"]
 
 [ext_resource type="Script" path="res://objects/enemies/emeny_spawner.gd" id="1_6jh5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux6ny"]
+size = Vector2(128, 128)
 
 [node name="EmenySpawner" type="Marker2D"]
 script = ExtResource("1_6jh5h")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
+
+[node name="SpawnBerth" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnBerth"]
+shape = SubResource("RectangleShape2D_ux6ny")
+debug_color = Color(0.0117647, 0.701961, 0, 0.419608)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

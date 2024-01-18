@@ -53,8 +53,6 @@ func _integrate_forces(state):
 			if direction:
 				velocity += direction * accel
 				velocity = velocity.limit_length(speed)
-			else:
-				velocity = velocity.limit_length(clamp(velocity.length() - accel, 0, speed))
 	state.linear_velocity = velocity
 
 #func _physics_process(delta):

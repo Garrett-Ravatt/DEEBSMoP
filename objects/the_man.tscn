@@ -7,9 +7,34 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_21u08"]
 radius = 20.0
 
-[node name="TheMan" type="Area2D" groups=["aggro_target"]]
+[node name="TheMan" type="CharacterBody2D" groups=["aggro_target"]]
 collision_mask = 0
 script = ExtResource("1_mkixg")
+
+[node name="FrontGun" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -26.0
+offset_right = 10.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.223529, 0.223529, 0.223529, 1)
+
+[node name="BackGun" type="ColorRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.0
+offset_top = 6.0
+offset_right = 10.0
+offset_bottom = 26.0
+grow_horizontal = 2
+color = Color(0.223529, 0.223529, 0.223529, 1)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 position = Vector2(0, 3.8147e-06)

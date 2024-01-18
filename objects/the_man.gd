@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 signal death
 @export var health := 100.0 :
@@ -8,7 +8,10 @@ signal death
 		health = value
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
+@export var accel := 600.0
+@export var linear_damping := 0.05
 var screen_size # Size of the game window.
+#var velocity = Vector2.ZERO # The player's movement vector.
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -16,17 +19,31 @@ func _ready():
 	
 
 func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+	var direction = Vector2(0,0)
+	velocity /= (1.0 + linear_damping * delta)
 	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
+		direction.x += 1
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
+		direction.x -= 1
 	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
+		direction.y += 1
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+		direction.y -= 1
+	#if velocity.length() > 0:
+		#velocity = velocity.normalized() * speed
 	
-	position += velocity * delta
+	#position += velocity * delta
+	#velocity.limit_length(speed)
+	if direction != Vector2(0,0):
+		
+		velocity += direction * accel * delta
+		velocity = velocity.limit_length(speed)
+	else:
+		print(velocity.length())
+		velocity = velocity.limit_length(velocity.length() - accel)
+		
 	position = position.clamp(Vector2.ZERO, screen_size)
+	look_at(get_global_mouse_position())
+	rotation_degrees += 90
+	
+	move_and_slide()

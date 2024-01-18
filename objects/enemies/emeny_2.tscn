@@ -9,6 +9,7 @@ bounce = 0.5
 size = Vector2(64, 64)
 
 [node name="Emeny2" type="RigidBody2D" groups=["enemy"]]
+collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_c8c4t")
 gravity_scale = 0.0
 lock_rotation = true

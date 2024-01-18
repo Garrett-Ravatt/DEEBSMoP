@@ -43,3 +43,18 @@ mesh = SubResource("SphereMesh_qaa3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_21u08")
+
+[node name="PrimaryFireHurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PrimaryFireHurtbox"]
+polygon = PackedVector2Array(0, 0, -96, -112, 0, -192, 96, -112)
+
+[node name="SecondaryFireHurtbox" type="Area2D" parent="."]
+rotation = 3.14159
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SecondaryFireHurtbox"]
+polygon = PackedVector2Array(0, 0, -96, -112, 0, -192, 96, -112)

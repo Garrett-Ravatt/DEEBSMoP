@@ -14,6 +14,9 @@ signal death
 var screen_size # Size of the game window.
 #var velocity = Vector2.ZERO # The player's movement vector.
 
+@onready var pri_hitbox : Area2D = $"PrimaryFireHurtbox"
+@onready var sec_hitbox : Area2D = $"SecondaryFireHurtbox"
+
 func _ready():
 	screen_size = get_viewport_rect().size
 	#hide()
@@ -25,10 +28,18 @@ func _process(delta):
 	#velocity /= (1.0 + linear_damping * delta)
 	if Input.is_action_just_pressed("primary_fire"):
 		velocity += -vect * gun_accel
+		var emenies := pri_hitbox.get_overlapping_bodies()
+		for emeny : RigidBody2D in emenies:
+			var to_em := emeny.global_position - global_position
+			#TODO: damage
+			emeny.health -= 20.0
+			#TODO: knockback
+			emeny.apply_impulse(to_em.normalized() * gun_accel)
 	if Input.is_action_just_pressed("secondary_fire"):
 		#velocity += vect * gun_accel*.7
 		# NOTE: It's me, Garrett. I did this.
 		velocity += vect * gun_accel*1.3
+		#TODO: damage & health from primary_fire
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	if Input.is_action_pressed("move_left"):

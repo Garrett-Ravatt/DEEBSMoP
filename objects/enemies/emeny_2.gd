@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 signal death
 @export var health := 100.0 :
@@ -8,8 +8,7 @@ signal death
 		health = value
 
 @export var speed := 500.0
-@export var accel := 600.0
-@export var linear_damping := 0.05
+@export var accel := 20.0
 
 enum EMENYSTATE {
 	PURSUIT,
@@ -44,19 +43,20 @@ var target : Node2D = null
 func _ready():
 	_state = EMENYSTATE.PURSUIT
 
-func _physics_process(delta):
+func _integrate_forces(state):
+	var velocity : Vector2 = state.linear_velocity
 	match _state:
 		EMENYSTATE.PATROL:
 			pass
 		EMENYSTATE.PURSUIT:
-			velocity /= (1.0 + linear_damping * delta)
-			
 			var direction = (target.global_position - global_position).normalized()
-			
 			if direction:
-				velocity += direction * accel * delta
+				velocity += direction * accel
 				velocity.limit_length(speed)
 			else:
 				velocity.limit_length(velocity.length() - accel)
+	state.linear_velocity = velocity
 
-	move_and_slide()
+#func _physics_process(delta):
+	#var velocity = linear_velocity
+	#move_and_collide(velocity * mass * delta)

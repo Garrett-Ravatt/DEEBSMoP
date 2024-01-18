@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://jbui2wjjrgss"]
+[gd_scene load_steps=2 format=3 uid="uid://jbui2wjjrgss"]
+
+[ext_resource type="PackedScene" uid="uid://dbtdb1i3qgyls" path="res://objects/bounding_box.tscn" id="1_fixei"]
 
 [node name="funny" type="Node2D"]
+
+[node name="BoundingBox" parent="." instance=ExtResource("1_fixei")]

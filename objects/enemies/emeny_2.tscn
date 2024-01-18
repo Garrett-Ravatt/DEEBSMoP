@@ -52,3 +52,5 @@ scale = Vector2(0.7, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wfg7g")
+
+[connection signal="death" from="." to="." method="_on_death"]

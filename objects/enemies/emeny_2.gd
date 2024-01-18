@@ -55,6 +55,7 @@ func _integrate_forces(state):
 				velocity = velocity.limit_length(speed)
 	state.linear_velocity = velocity
 
-#func _physics_process(delta):
-	#var velocity = linear_velocity
-	#move_and_collide(velocity * mass * delta)
+
+func _on_death():
+	#TODO: Cute particle poofery
+	queue_free()

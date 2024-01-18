@@ -34,7 +34,7 @@ func _process(delta):
 			#TODO: damage
 			emeny.health -= 20.0
 			#TODO: knockback
-			emeny.apply_impulse(to_em.normalized() * gun_accel)
+			emeny.set_deferred("linear_velocity", to_em.normalized() * gun_accel)
 	if Input.is_action_just_pressed("secondary_fire"):
 		#velocity += vect * gun_accel*.7
 		# NOTE: It's me, Garrett. I did this.

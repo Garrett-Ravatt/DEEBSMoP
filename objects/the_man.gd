@@ -7,8 +7,9 @@ signal death
 			death.emit()
 		health = value
 
-@export var speed = 200 # How fast the player will move (pixels/sec).
-@export var accel := 10.0
+@export var speed = 1200 # How fast the player will move (pixels/sec).
+@export var accel := 4.0
+@export var gun_accel := 500.0
 @export var linear_damping := 0.05
 var screen_size # Size of the game window.
 #var velocity = Vector2.ZERO # The player's movement vector.
@@ -19,8 +20,13 @@ func _ready():
 	
 
 func _process(delta):
+	var vect = (get_global_mouse_position() - position).normalized()
 	var direction = Vector2(0,0)
 	#velocity /= (1.0 + linear_damping * delta)
+	if Input.is_action_just_pressed("primary_fire"):
+		velocity += -vect * gun_accel
+	if Input.is_action_just_pressed("secondary_fire"):
+		velocity += vect * gun_accel*.7
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -37,11 +43,12 @@ func _process(delta):
 	if direction != Vector2(0,0):
 		
 		velocity += direction * accel 
-		velocity = velocity.limit_length(speed)
-	else:
-		print(velocity.length())
-		velocity = velocity.limit_length(velocity.length() * .99)
 		
+		
+	#print(velocity.length())
+	velocity = velocity.limit_length(velocity.length() * .99)
+	velocity = velocity.limit_length(speed)
+	
 	position = position.clamp(Vector2.ZERO, screen_size)
 	look_at(get_global_mouse_position())
 	rotation_degrees += 90

@@ -52,9 +52,9 @@ func _integrate_forces(state):
 			var direction = (target.global_position - global_position).normalized()
 			if direction:
 				velocity += direction * accel
-				velocity.limit_length(speed)
+				velocity = velocity.limit_length(speed)
 			else:
-				velocity.limit_length(velocity.length() - accel)
+				velocity = velocity.limit_length(clamp(velocity.length() - accel, 0, speed))
 	state.linear_velocity = velocity
 
 #func _physics_process(delta):

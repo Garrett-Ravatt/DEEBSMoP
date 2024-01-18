@@ -6,7 +6,7 @@ var emeny = preload("res://objects/enemies/emeny_2.tscn")
 
 func spawn():
 	var fresh_child = emeny.instantiate()
-	fresh_child.linear_velocity = Vector2(randf()-0.5, randf()-0.5).normalized() * 50.0
+	fresh_child.linear_velocity = Vector2(randf()-0.5, randf()-0.5).normalized() * 200.0
 	add_child(fresh_child)
 
 func _on_timer_timeout():

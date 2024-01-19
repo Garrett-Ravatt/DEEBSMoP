@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 signal death
-@export var health := 100.0 :
+@export var health := 3 :
 	set(value):
+		print("ouchie")
 		if value <= 0:
 			death.emit()
 		health = value
@@ -74,3 +75,10 @@ func _process(delta):
 	rotation_degrees += 90
 	
 	move_and_slide()
+
+func get_hurt():
+	health -= 1
+
+func _on_death():
+	print("Player freaking died, criminy... H E double hocky sticks dude. Wow.")
+	#TODO: Care that the player has died

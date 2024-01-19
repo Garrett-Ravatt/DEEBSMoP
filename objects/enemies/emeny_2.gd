@@ -22,7 +22,8 @@ var _state : EMENYSTATE = EMENYSTATE.PATROL :
 		# TEARDOWN
 		match _state:
 			EMENYSTATE.PATROL:
-				print("leaving Patrol")
+				#print("leaving Patrol")
+				pass
 			EMENYSTATE.PURSUIT:
 				target = null
 

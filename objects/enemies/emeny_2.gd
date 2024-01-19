@@ -7,7 +7,7 @@ signal death
 			death.emit()
 		health = value
 
-@export var speed := 500.0
+@export var speed := 250.0
 @export var accel := 20.0
 
 enum EMENYSTATE {

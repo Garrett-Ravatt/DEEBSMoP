@@ -32,15 +32,23 @@ func _process(delta):
 		for emeny : RigidBody2D in emenies:
 			var to_em := emeny.global_position - global_position
 			#TODO: damage
-			emeny.health -= 20.0
+			emeny.health -= 50.0
 			#TODO: knockback
-			emeny.set_deferred("linear_velocity", to_em.normalized() * gun_accel)
+			emeny.set_deferred("linear_velocity", to_em.normalized() * gun_accel * 2)
 	if Input.is_action_just_pressed("secondary_fire"):
 		#velocity += vect * gun_accel*.7
 		# NOTE: It's me, Garrett. I did this.
 		# NOTE: make the back spread longer and more narrow
 		velocity += vect * gun_accel*1.3
 		#TODO: damage & health from primary_fire
+		var emenies := sec_hitbox.get_overlapping_bodies()
+		for emeny : RigidBody2D in emenies:
+			var to_em := emeny.global_position - global_position
+			#TODO: damage
+			emeny.health -= 25.0
+			#TODO: knockback
+			emeny.set_deferred("linear_velocity", to_em.normalized() * gun_accel )
+			
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	if Input.is_action_pressed("move_left"):

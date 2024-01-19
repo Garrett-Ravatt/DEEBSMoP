@@ -49,7 +49,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PrimaryFireHurtbox"]
-polygon = PackedVector2Array(0, 0, -160, -75, 0, -160, 172, -75)
+polygon = PackedVector2Array(0, 0, -160, -140, 0, -160, 172, -140)
 
 [node name="SecondaryFireHurtbox" type="Area2D" parent="."]
 rotation = 3.14159
@@ -57,4 +57,4 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SecondaryFireHurtbox"]
-polygon = PackedVector2Array(0, 0, -160, -75, 0, -160, 172, -75)
+polygon = PackedVector2Array(0, 0, -95, -250, 0, -275, 95, -250)

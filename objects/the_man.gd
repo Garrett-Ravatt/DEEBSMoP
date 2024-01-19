@@ -38,6 +38,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("secondary_fire"):
 		#velocity += vect * gun_accel*.7
 		# NOTE: It's me, Garrett. I did this.
+		# NOTE: make the back spread longer and more narrow
 		velocity += vect * gun_accel*1.3
 		#TODO: damage & health from primary_fire
 	if Input.is_action_pressed("move_right"):

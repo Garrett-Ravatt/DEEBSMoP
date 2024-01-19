@@ -29,14 +29,17 @@ size_flags_vertical = 0
 [node name="HealthChip" type="ColorRect" parent="MarginContainer/HealthBox"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+color = Color(1, 0, 0, 1)
 
 [node name="HealthChip2" type="ColorRect" parent="MarginContainer/HealthBox"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+color = Color(1, 0, 0, 1)
 
 [node name="HealthChip3" type="ColorRect" parent="MarginContainer/HealthBox"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+color = Color(1, 0, 0, 1)
 
 [node name="Ammo" type="Label" parent="MarginContainer"]
 layout_mode = 2

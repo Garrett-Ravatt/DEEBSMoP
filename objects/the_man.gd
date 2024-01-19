@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 signal death
+signal health_change(int)
 @export var health := 3 :
 	set(value):
 		print("ouchie")
 		if value <= 0:
 			death.emit()
 		health = value
+		health_change.emit(health)
 
 @export var speed = 600.0 # How fast the player will move (pixels/sec).
 @export var accel := 40.0

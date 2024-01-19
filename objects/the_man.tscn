@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck2ec7r4qsdr4"]
+[gd_scene load_steps=5 format=3 uid="uid://ck2ec7r4qsdr4"]
 
 [ext_resource type="Script" path="res://objects/the_man.gd" id="1_mkixg"]
+[ext_resource type="PackedScene" uid="uid://dv83bldx52n42" path="res://ui/hud.tscn" id="2_lelup"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_qaa3g"]
 
@@ -60,4 +61,9 @@ collision_mask = 2
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="SecondaryFireHurtbox"]
 polygon = PackedVector2Array(0, 0, -95, -250, 0, -275, 95, -250)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("2_lelup")]
+
 [connection signal="death" from="." to="." method="_on_death"]
+[connection signal="health_change" from="." to="CanvasLayer/HUD" method="_on_health_changed"]

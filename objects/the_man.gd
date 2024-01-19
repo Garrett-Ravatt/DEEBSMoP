@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export_category("Game Resources")
 signal death
 signal health_change(int)
 @export var health := 3 :
@@ -10,6 +11,28 @@ signal health_change(int)
 		health = value
 		health_change.emit(health)
 
+signal ammo_change(int)
+@export var ammo := 32 :
+	set(value):
+		if value != ammo:
+			ammo = value
+			ammo_change.emit(ammo)
+
+signal pri_load_change(int)
+@export var pri_load := 4 :
+	set(value):
+		if value != pri_load:
+			pri_load = value
+			pri_load_change.emit(pri_load)
+
+signal sec_load_change(int)
+@export var sec_load := 4 :
+	set(value):
+		if value != sec_load:
+			sec_load = value
+			sec_load_change.emit(sec_load)
+
+@export_category("Movement")
 @export var speed = 600.0 # How fast the player will move (pixels/sec).
 @export var accel := 40.0
 @export var gun_accel := 1500.0

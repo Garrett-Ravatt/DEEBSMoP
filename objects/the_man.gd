@@ -55,6 +55,9 @@ func _process(delta):
 	var direction = Vector2(0,0)
 	#velocity /= (1.0 + linear_damping * delta)
 	if Input.is_action_just_pressed("primary_fire"):
+		if pri_load < 1:
+			return
+		pri_load -= 1
 		velocity += -vect * gun_accel
 		var emenies := pri_hitbox.get_overlapping_bodies()
 		for emeny : RigidBody2D in emenies:
@@ -64,11 +67,13 @@ func _process(delta):
 			#TODO: knockback
 			emeny.set_deferred("linear_velocity", to_em.normalized() * gun_accel * 2)
 	if Input.is_action_just_pressed("secondary_fire"):
+		if sec_load < 1:
+			return
+		sec_load -= 1
 		#velocity += vect * gun_accel*.7
 		# NOTE: It's me, Garrett. I did this.
 		# NOTE: make the back spread longer and more narrow
 		velocity += vect * gun_accel*1.3
-		#TODO: damage & health from primary_fire
 		var emenies := sec_hitbox.get_overlapping_bodies()
 		for emeny : RigidBody2D in emenies:
 			var to_em := emeny.global_position - global_position

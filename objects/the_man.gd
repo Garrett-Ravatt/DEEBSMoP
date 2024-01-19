@@ -20,6 +20,8 @@ var screen_size # Size of the game window.
 @onready var pri_hitbox : Area2D = $"PrimaryFireHurtbox"
 @onready var sec_hitbox : Area2D = $"SecondaryFireHurtbox"
 
+@onready var i_timer : Timer = $"ITimer"
+
 func _ready():
 	screen_size = get_viewport_rect().size
 	#hide()
@@ -79,7 +81,9 @@ func _process(delta):
 	move_and_slide()
 
 func get_hurt():
-	health -= 1
+	if i_timer.is_stopped():
+		health -= 1
+		i_timer.start()
 
 func _on_death():
 	print("Player freaking died, criminy... H E double hocky sticks dude. Wow.")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc5c4sihs657w"]
+
+[ext_resource type="PackedScene" uid="uid://dv83bldx52n42" path="res://ui/hud.tscn" id="1_2kq8g"]
+[ext_resource type="Script" path="res://test-scenes/faux_hud.gd" id="1_7u8hn"]
+
+[node name="FauxHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7u8hn")
+
+[node name="HUD" parent="." instance=ExtResource("1_2kq8g")]
+layout_mode = 1

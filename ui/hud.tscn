@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dv83bldx52n42"]
+[gd_scene load_steps=3 format=3 uid="uid://dv83bldx52n42"]
+
+[ext_resource type="Theme" uid="uid://bbopat602yjj" path="res://ui/hud.tres" id="1_hih0n"]
+[ext_resource type="Script" path="res://ui/hud.gd" id="2_a46wx"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -7,3 +10,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hih0n")
+script = ExtResource("2_a46wx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthBox" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HealthChip" type="ColorRect" parent="MarginContainer/HealthBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="HealthChip2" type="ColorRect" parent="MarginContainer/HealthBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="HealthChip3" type="ColorRect" parent="MarginContainer/HealthBox"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="Ammo" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "32"
+
+[node name="PrimaryLoad" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "4 / 4"
+
+[node name="SecondaryLoad" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "4 / 4"

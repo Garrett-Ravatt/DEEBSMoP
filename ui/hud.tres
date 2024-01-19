@@ -1,0 +1,11 @@
+[gd_resource type="Theme" format=3 uid="uid://bbopat602yjj"]
+
+[resource]
+default_font_size = 64
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 12
+MarginContainer/constants/margin_bottom = 32
+MarginContainer/constants/margin_left = 32
+MarginContainer/constants/margin_right = 32
+MarginContainer/constants/margin_top = 32
+VBoxContainer/constants/separation = 8

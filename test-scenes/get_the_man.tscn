@@ -12,16 +12,16 @@
 metadata/_edit_lock_ = true
 
 [node name="EmenySpawner" parent="Spawners" instance=ExtResource("2_f2gc1")]
-position = Vector2(175, 140)
+position = Vector2(175, 187)
 
 [node name="EmenySpawner2" parent="Spawners" instance=ExtResource("2_f2gc1")]
-position = Vector2(954, 140)
+position = Vector2(1194, 187)
 
 [node name="EmenySpawner3" parent="Spawners" instance=ExtResource("2_f2gc1")]
-position = Vector2(175, 505)
+position = Vector2(175, 694)
 
 [node name="EmenySpawner4" parent="Spawners" instance=ExtResource("2_f2gc1")]
-position = Vector2(954, 505)
+position = Vector2(1194, 694)
 
 [node name="TheMan" parent="." instance=ExtResource("1_mu60b")]
-position = Vector2(447, 253)
+position = Vector2(683, 396)

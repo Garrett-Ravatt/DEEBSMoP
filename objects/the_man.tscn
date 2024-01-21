@@ -69,8 +69,11 @@ one_shot = true
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("2_lelup")]
 
+[node name="ReloadTimer" type="Timer" parent="."]
+
 [connection signal="ammo_change" from="." to="CanvasLayer/HUD" method="_on_ammo_changed"]
 [connection signal="death" from="." to="." method="_on_death"]
 [connection signal="health_change" from="." to="CanvasLayer/HUD" method="_on_health_changed"]
 [connection signal="pri_load_change" from="." to="CanvasLayer/HUD" method="_on_pri_load_change"]
 [connection signal="sec_load_change" from="." to="CanvasLayer/HUD" method="_on_sec_load_change"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]

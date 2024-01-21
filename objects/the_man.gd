@@ -31,6 +31,20 @@ signal sec_load_change(int)
 		if value != sec_load:
 			sec_load = value
 			sec_load_change.emit(sec_load)
+			
+signal pri_load_max_change(int)
+@export var pri_load_max := 4 :
+	set(value):
+		if value != pri_load:
+			pri_load = value
+			pri_load_change.emit(pri_load)
+
+signal sec_load_max_change(int)
+@export var sec_load_max := 4 :
+	set(value):
+		if value != sec_load:
+			sec_load = value
+			sec_load_change.emit(sec_load)
 
 @export_category("Movement")
 @export var speed = 600.0 # How fast the player will move (pixels/sec).
@@ -44,6 +58,7 @@ var screen_size # Size of the game window.
 @onready var sec_hitbox : Area2D = $"SecondaryFireHurtbox"
 
 @onready var i_timer : Timer = $"ITimer"
+@onready var reload_timer : Timer = $"ReloadTimer"
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -58,6 +73,8 @@ func _process(delta):
 		if pri_load < 1:
 			return
 		pri_load -= 1
+		reload_timer.set_wait_time(1)
+		reload_timer.start()
 		velocity += -vect * gun_accel
 		var emenies := pri_hitbox.get_overlapping_bodies()
 		for emeny : RigidBody2D in emenies:
@@ -70,6 +87,8 @@ func _process(delta):
 		if sec_load < 1:
 			return
 		sec_load -= 1
+		reload_timer.set_wait_time(1)
+		reload_timer.start()
 		#velocity += vect * gun_accel*.7
 		# NOTE: It's me, Garrett. I did this.
 		# NOTE: make the back spread longer and more narrow
@@ -116,3 +135,19 @@ func get_hurt():
 func _on_death():
 	print("Player freaking died, criminy... H E double hocky sticks dude. Wow.")
 	#TODO: Care that the player has died
+
+
+func _on_reload_timer_timeout():
+	if(ammo >0):
+		if(sec_load < pri_load && sec_load < sec_load_max):
+			sec_load+=1
+			ammo-=1
+			
+		elif(pri_load<pri_load_max):
+			pri_load +=1
+			ammo-=1
+	reload_timer.set_wait_time(.4)
+	reload_timer.start()
+		
+		
+	

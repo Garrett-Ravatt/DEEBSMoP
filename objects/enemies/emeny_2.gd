@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var ammo = preload("res://objects/pickups/ammo.tscn")
+
 signal death
 @export var health := 100.0 :
 	set(value):
@@ -58,5 +60,11 @@ func _integrate_forces(state):
 
 
 func _on_death():
+	var rand = randi_range(0,5)
+	if(rand == 2):
+		var ammo_drop = ammo.instantiate()
+		ammo_drop.set_position(global_position)
+		get_tree().get_root().add_child(ammo_drop)
+	#TODO: spawn health pickup
 	#TODO: Cute particle poofery
 	queue_free()

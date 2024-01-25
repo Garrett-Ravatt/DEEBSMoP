@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6ub2tue8g7yc"]
 
-[ext_resource type="Script" path="res://objects/Pickups/Ammo.gd" id="1_guo8b"]
+[ext_resource type="Script" path="res://objects/pickups/ammo.gd" id="1_guo8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsjm2"]
 size = Vector2(30, 30)

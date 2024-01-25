@@ -150,4 +150,6 @@ func _on_reload_timer_timeout():
 	reload_timer.start()
 		
 		
-	
+
+func get_ammo():
+	ammo += 8

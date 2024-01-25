@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd0s51ahsweea"]
+[gd_scene load_steps=5 format=3 uid="uid://dd0s51ahsweea"]
 
 [ext_resource type="PackedScene" uid="uid://ck2ec7r4qsdr4" path="res://objects/the_man.tscn" id="1_mu60b"]
 [ext_resource type="PackedScene" uid="uid://dbtdb1i3qgyls" path="res://objects/bounding_box.tscn" id="1_na08b"]
 [ext_resource type="PackedScene" uid="uid://bq4cy38o7vn18" path="res://objects/enemies/emeny_spawner.tscn" id="2_f2gc1"]
+[ext_resource type="PackedScene" uid="uid://b6ub2tue8g7yc" path="res://objects/Pickups/Ammo.tscn" id="4_84kud"]
 
 [node name="GetTheMan" type="Node2D"]
 
@@ -25,3 +26,6 @@ position = Vector2(1194, 694)
 
 [node name="TheMan" parent="." instance=ExtResource("1_mu60b")]
 position = Vector2(683, 396)
+
+[node name="Area2D" parent="." instance=ExtResource("4_84kud")]
+position = Vector2(570, 142)

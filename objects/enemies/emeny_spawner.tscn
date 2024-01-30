@@ -9,7 +9,7 @@ size = Vector2(64, 64)
 script = ExtResource("1_6jh5h")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 10.0
 autostart = true
 
 [node name="SpawnBerth" type="Area2D" parent="."]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxg7r8uay37wj"]
+
+[ext_resource type="Script" path="res://objects/pickups/health.gd" id="1_mo621"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrgqn"]
+size = Vector2(30, 30)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_mo621")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jrgqn")
+debug_color = Color(0, 0.6, 0.0745098, 0.419608)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

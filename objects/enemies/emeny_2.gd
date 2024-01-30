@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var ammo = preload("res://objects/pickups/ammo.tscn")
+var h_pickup = preload("res://objects/pickups/health.tscn")
 
 signal death
 @export var health := 100.0 :
@@ -65,6 +66,10 @@ func _on_death():
 		var ammo_drop = ammo.instantiate()
 		ammo_drop.set_position(global_position)
 		get_tree().get_root().add_child(ammo_drop)
+	if(rand == 3):
+		var health_drop = h_pickup.instantiate()
+		health_drop.set_position(global_position)
+		get_tree().get_root().add_child(health_drop)
 	#TODO: spawn health pickup
 	#TODO: Cute particle poofery
 	queue_free()

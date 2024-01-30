@@ -153,3 +153,8 @@ func _on_reload_timer_timeout():
 
 func get_ammo():
 	ammo += 8
+	
+func get_health():
+	health += 1
+	if(health>=3):
+		health = 3

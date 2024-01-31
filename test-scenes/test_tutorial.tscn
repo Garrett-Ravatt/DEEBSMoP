@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://4toleoqbm0vh"]
+
+[ext_resource type="PackedScene" uid="uid://db31s7ffcs1do" path="res://ui/tutorial_screen.tscn" id="1_vn2v6"]
+[ext_resource type="PackedScene" uid="uid://ck2ec7r4qsdr4" path="res://objects/the_man.tscn" id="2_rgy3h"]
+
+[node name="TestTutorial" type="Node2D"]
+
+[node name="TheMan" parent="." instance=ExtResource("2_rgy3h")]
+
+[node name="TutorialScreen" parent="." instance=ExtResource("1_vn2v6")]

@@ -60,6 +60,9 @@ var screen_size # Size of the game window.
 @onready var i_timer : Timer = $"ITimer"
 @onready var reload_timer : Timer = $"ReloadTimer"
 
+@onready var front_particles : CPUParticles2D = $"FrontParticles"
+@onready var back_particles : CPUParticles2D = $"BackParticles"
+
 func _ready():
 	screen_size = get_viewport_rect().size
 	#hide()
@@ -72,6 +75,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("primary_fire"):
 		if pri_load < 1:
 			return
+		front_particles.emitting = true
 		pri_load -= 1
 		reload_timer.set_wait_time(1)
 		reload_timer.start()
@@ -86,6 +90,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("secondary_fire"):
 		if sec_load < 1:
 			return
+		back_particles.emitting = true
 		sec_load -= 1
 		reload_timer.set_wait_time(1)
 		reload_timer.start()

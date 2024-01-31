@@ -1,7 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://jbui2wjjrgss"]
+[gd_scene load_steps=4 format=3 uid="uid://cco0akny5iqvk"]
 
-[ext_resource type="PackedScene" uid="uid://dbtdb1i3qgyls" path="res://objects/bounding_box.tscn" id="1_fixei"]
+[ext_resource type="PackedScene" uid="uid://ck2ec7r4qsdr4" path="res://objects/the_man.tscn" id="1_0rxtg"]
+[ext_resource type="PackedScene" uid="uid://bq4cy38o7vn18" path="res://objects/enemies/emeny_spawner.tscn" id="2_f5ikl"]
+[ext_resource type="PackedScene" uid="uid://db31s7ffcs1do" path="res://ui/tutorial_screen.tscn" id="3_b85sy"]
 
 [node name="funny" type="Node2D"]
 
-[node name="BoundingBox" parent="." instance=ExtResource("1_fixei")]
+[node name="TheMan" parent="." instance=ExtResource("1_0rxtg")]
+position = Vector2(700, 450)
+
+[node name="Spawners" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="EmenySpawner" parent="Spawners" instance=ExtResource("2_f5ikl")]
+position = Vector2(-170, 187)
+
+[node name="EmenySpawner2" parent="Spawners" instance=ExtResource("2_f5ikl")]
+position = Vector2(1586, 187)
+
+[node name="EmenySpawner3" parent="Spawners" instance=ExtResource("2_f5ikl")]
+position = Vector2(-170, 694)
+
+[node name="EmenySpawner4" parent="Spawners" instance=ExtResource("2_f5ikl")]
+position = Vector2(1586, 694)
+
+[node name="TutorialScreen" parent="." instance=ExtResource("3_b85sy")]

@@ -10,6 +10,7 @@ func spawn():
 	add_child(fresh_child)
 
 func _on_timer_timeout():
+	spawn()
 	if !spawn_berth.has_overlapping_bodies():
 		spawn()
 	#if spawn_berth.has_overlapping_bodies():

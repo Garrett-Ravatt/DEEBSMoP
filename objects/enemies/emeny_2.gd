@@ -64,12 +64,13 @@ func _on_death():
 	var rand = randi_range(0,5)
 	if(rand == 2):
 		var ammo_drop = ammo.instantiate()
-		ammo_drop.set_position(global_position)
 		get_parent().add_child(ammo_drop)
+		ammo_drop.set_global_position(global_position)
 	if(rand == 3):
 		var health_drop = h_pickup.instantiate()
-		health_drop.set_position(global_position)
 		get_parent().add_child(health_drop)
+		health_drop.set_global_position(global_position)
+		health_drop.set_global_position(global_position)
 	#TODO: spawn health pickup
 	#TODO: Cute particle poofery
 	queue_free()

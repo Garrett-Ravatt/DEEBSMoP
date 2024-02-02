@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cco0akny5iqvk"]
+[gd_scene load_steps=5 format=3 uid="uid://cco0akny5iqvk"]
 
 [ext_resource type="PackedScene" uid="uid://ck2ec7r4qsdr4" path="res://objects/the_man.tscn" id="1_0rxtg"]
 [ext_resource type="PackedScene" uid="uid://bq4cy38o7vn18" path="res://objects/enemies/emeny_spawner.tscn" id="2_f5ikl"]
 [ext_resource type="PackedScene" uid="uid://db31s7ffcs1do" path="res://ui/tutorial_screen.tscn" id="3_b85sy"]
+[ext_resource type="PackedScene" uid="uid://djeaxk6k13e8r" path="res://ui/death_screen.tscn" id="4_1laa0"]
 
 [node name="funny" type="Node2D"]
 
@@ -25,3 +26,7 @@ position = Vector2(-170, 694)
 position = Vector2(1586, 694)
 
 [node name="TutorialScreen" parent="." instance=ExtResource("3_b85sy")]
+
+[node name="DeathScreen" parent="." instance=ExtResource("4_1laa0")]
+
+[connection signal="death" from="TheMan" to="DeathScreen" method="_on_death"]

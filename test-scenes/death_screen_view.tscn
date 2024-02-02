@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq2fuewqb3lcx"]
+
+[ext_resource type="PackedScene" uid="uid://djeaxk6k13e8r" path="res://ui/death_screen.tscn" id="1_5mu46"]
+[ext_resource type="Script" path="res://goofer.gd" id="2_xwyq6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="DeathScreen" parent="." instance=ExtResource("1_5mu46")]
+
+[node name="Goofer" type="Node" parent="."]
+script = ExtResource("2_xwyq6")
+
+[connection signal="goof" from="Goofer" to="DeathScreen" method="_on_death"]

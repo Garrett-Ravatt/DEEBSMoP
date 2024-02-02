@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://djeaxk6k13e8r"]
+
+[ext_resource type="Script" path="res://ui/death_screen.gd" id="1_bacqa"]
+[ext_resource type="Theme" uid="uid://bbopat602yjj" path="res://ui/hud.tres" id="2_2cae1"]
+
+[sub_resource type="Gradient" id="Gradient_puylb"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0584416, 0.402597)
+colors = PackedColorArray(0.278431, 0, 0, 1, 0.501961, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ajoi4"]
+gradient = SubResource("Gradient_puylb")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="DeathScreen" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("1_bacqa")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_2cae1")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ajoi4")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "OOPSIE"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start Over"
+
+[connection signal="pressed" from="Control/MarginContainer/Button" to="." method="_on_button_pressed"]

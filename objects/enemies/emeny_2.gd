@@ -71,6 +71,7 @@ func _on_death():
 		get_parent().add_child(health_drop)
 		health_drop.set_global_position(global_position)
 		health_drop.set_global_position(global_position)
+		health_drop.set_global_position(global_position)
 	#TODO: spawn health pickup
 	#TODO: Cute particle poofery
 	queue_free()

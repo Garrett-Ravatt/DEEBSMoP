@@ -65,11 +65,11 @@ func _on_death():
 	if(rand == 2):
 		var ammo_drop = ammo.instantiate()
 		ammo_drop.set_position(global_position)
-		get_tree().get_root().add_child(ammo_drop)
+		get_parent().add_child(ammo_drop)
 	if(rand == 3):
 		var health_drop = h_pickup.instantiate()
 		health_drop.set_position(global_position)
-		get_tree().get_root().add_child(health_drop)
+		get_parent().add_child(health_drop)
 	#TODO: spawn health pickup
 	#TODO: Cute particle poofery
 	queue_free()

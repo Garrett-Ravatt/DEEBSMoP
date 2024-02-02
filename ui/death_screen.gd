@@ -17,4 +17,5 @@ func _on_death():
 
 
 func _on_button_pressed():
+	#get_tree().root.queue_free()
 	get_tree().change_scene_to_file("res://screens/funny.tscn")
